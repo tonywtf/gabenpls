@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gabenpls", "gabenpls\gabenpls.csproj", "{C98A9EAB-1911-4135-86D3-737F646EDA83}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C98A9EAB-1911-4135-86D3-737F646EDA83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C98A9EAB-1911-4135-86D3-737F646EDA83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C98A9EAB-1911-4135-86D3-737F646EDA83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C98A9EAB-1911-4135-86D3-737F646EDA83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F34DB1DB-EF37-4115-B990-89F4B65F0155}
+	EndGlobalSection
+EndGlobal

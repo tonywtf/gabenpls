@@ -1,0 +1,97 @@
+﻿
+@functions
+{
+    public static string IsDescriptionEmpty(string description)
+    {
+        if (string.IsNullOrEmpty(description))
+        {
+            return " ";
+        }
+        return description;
+    }
+
+    private static string IsAchieved(Achievement ach)
+    {
+        if (ach.isAchieved)
+        {
+            return ach.iconUrl;
+        }
+        return ach.iconUrlGray;
+    }
+
+    private void Achievement(Achievement ach)
+    {
+       <div class="box gp-achievement" xmlns:https="http://www.w3.org/1999/xhtml">
+         <article class="media">
+             <div class="media-left">
+                 <figure class="image is-64x64">
+                     <img src=@IsAchieved(ach)>
+                 </figure>
+             </div>
+             <div class="media-content">
+                 <div class="content">
+                     <h6 class="title is-6">
+                         @ach.title 
+                     </h6>
+                     <p>
+                         @IsDescriptionEmpty(ach.description)
+                     </p>
+                     <div class="gp-complection-persent">
+                         @Math.Round(ach.percent, 2)%
+                     </div>
+                 </div>
+             </div>
+             <div class="media-right">
+                 @* <img src=@ach.game.iconUrl title=@ach.game.name> *@
+                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/588px-Google_%22G%22_Logo.svg.png"
+                      title="find help in google" width="32" height="32">
+             </div>
+         </article>
+     </div>
+    }
+    
+    private void dropDownBuilder(Game game)
+    {
+        <a href="/Achievements?gameId=@game.id"  class="dropdown-item">
+            @game.name
+        </a>
+    }
+}
+
+ 
+@{
+   ViewData["Title"] = "Achievements"; 
+}
+
+<div class="dropdown is-active">
+  <div class="dropdown-trigger">
+    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+      <span>Choose Game</span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" id="dropdown-menu" role="menu">
+      <div class="dropdown-content" >
+          @{var gamesList = ViewData["PlayerGamesList"] as List<gabenpls.Models.Game>;
+              foreach (var game in gamesList)
+              {
+                  dropDownBuilder(game);
+              }
+          }
+      </div>
+  </div>
+</div>
+    <div class="column">
+        <div class="container box has-background-light">
+            @* <h3 class="title is-3"><a href="/achievements/filter">Your rarest achievements</a></h3> *@
+            @{
+                var list = ViewData["AchList"] as List<gabenpls.Models.Achievement>;
+                foreach (var a in list)
+                {
+                    Achievement(a);
+                }
+            }
+        </div>
+    </div>
