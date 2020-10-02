@@ -21,19 +21,19 @@ namespace gabenpls.Controllers
             this.client = client;
         }
 
-        public async Task<ViewResult> Index()
+        public async Task<RedirectResult> Index()
         {
             var steamId = HttpContext.Request.Cookies["SteamId"];
             if (steamId == null)
             {
-                ViewData["avatarUrl"] = "~/Images/gaben.jpg";
-                return View();
+                ViewData["avatarUrl"] = "Images/gaben.jpg";
+                return RedirectPermanent("/");
             }
             else
             {
                 var playerSummaries = await client.GetPlayerSummaries(steamId);
                 ViewData["avatarUrl"] = playerSummaries.avatar;
-                return View();
+                return RedirectPermanent("achievements");
             }
             
         }

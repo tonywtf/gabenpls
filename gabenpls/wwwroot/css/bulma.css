@@ -4707,8 +4707,10 @@ fieldset[disabled] .select select:hover {
   background-color: white;
   border-radius: 4px;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
-  padding-bottom: 0.5rem;
-  padding-top: 0.5rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  max-height: 20em;
+  overflow: auto;
 }
 
 .dropdown-item {

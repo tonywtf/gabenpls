@@ -20,7 +20,7 @@ namespace gabenpls.Controllers
             this.client = client;
         }
         
-        [HttpGet("~/Achievements")]
+        [HttpGet("~/achievements")]
         public async Task<IActionResult> MainAchievementsPage()
         {
             var steamId = HttpContext.Request.Cookies["SteamId"];
@@ -33,7 +33,6 @@ namespace gabenpls.Controllers
             {
                 var playerSummaries = await client.GetPlayerSummaries(steamId);
                 ViewData["avatarUrl"] = playerSummaries.avatar;
-                //var list = await GetAllPlayerAchievements(steamId);
                 var list = new List<Achievement>();
                 var gameId = HttpContext.Request.Query["gameId"];
                 var gamesList = await client.GetPlayerGames(steamId);

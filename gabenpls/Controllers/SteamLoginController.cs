@@ -43,16 +43,17 @@ namespace Gabenpls.Controllers
 
             HttpContext.Response.Cookies.Append("SteamId", steamId, cookieOptions);
 
-            return RedirectPermanent("/Achievements");
+            return RedirectPermanent("/achievements");
         }
 
 
 
 
-        [HttpGet("~/signout"), HttpPost("~/signout")]
+        [HttpPost("~/steamLogout")]
         public IActionResult SignOut()
         {
-            HttpContext.Response.Cookies.Delete("SteamId");
+            HttpContext.Response.Cookies.Append("SteamId", null);
+            return RedirectPermanent("/");
             return SignOut(new AuthenticationProperties { RedirectUri = "/" }, CookieAuthenticationDefaults.AuthenticationScheme);
         }
     }
